@@ -1,146 +1,157 @@
-# AI-Powered Research Proposal Generator
+# AI-Powered Research Proposal Generator using LangGraph and RAG
 
 ## Project Overview
 
-Developed an AI-powered research assistant that automates the process of generating comprehensive research proposals from academic documents and user-provided ideas. The system leverages Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and document processing techniques to assist researchers in creating structured and high-quality research proposals.
+Developed an AI-powered research proposal generation system that automates the creation of structured research proposals from academic documents and user-provided research ideas. The system combines Retrieval-Augmented Generation (RAG), LangGraph workflows, FAISS vector search, and Large Language Models (LLMs) to generate research topics, hypotheses, literature reviews, methodologies, ethical considerations, and complete research proposals.
 
 ## Objective
 
 Build an intelligent research assistant that:
 
-- Extracts information from PDF and Word documents.
-- Generates research topics and ideas.
-- Creates research questions and hypotheses.
-- Produces literature reviews.
-- Suggests methodologies and research frameworks.
-- Evaluates significance and ethical considerations.
-- Generates timelines and budget plans.
-- Compiles a complete research proposal automatically.
+* Extracts knowledge from PDF and DOCX research documents.
+* Retrieves relevant academic context using RAG.
+* Generates research topics and idea frameworks.
+* Creates research questions and hypotheses.
+* Produces literature reviews and methodologies.
+* Identifies research significance and ethical considerations.
+* Generates timelines and budget plans.
+* Compiles a complete research proposal automatically.
 
 ## Tech Stack
 
-- Python
-- LangChain
-- LangGraph
-- Groq LLM
-- FAISS Vector Database
-- Hugging Face Transformers
-- PyPDF
-- Docx2Txt
-
-## Key Features
-
-### Document Processing
-
-- Extracts text from PDF documents.
-- Processes Word (DOCX) files.
-- Supports multiple research sources.
-
-### Research Topic Generation
-
-- Identifies potential research areas.
-- Generates innovative research ideas.
-- Creates topic recommendations based on input documents.
-
-### Research Planning
-
-- Generates research questions.
-- Develops hypotheses.
-- Suggests methodologies and research designs.
-
-### Literature Review Generation
-
-- Summarizes existing research.
-- Identifies knowledge gaps.
-- Provides context for proposed studies.
-
-### Proposal Development
-
-- Research Significance Assessment
-- Ethical Considerations
-- Timeline Planning
-- Budget Estimation
-- Final Proposal Compilation
-
-## Workflow
-
-### 1. Document Ingestion
-
-Upload research papers, articles, or academic documents in PDF or DOCX format.
-
-### 2. Information Extraction
-
-Extract relevant content and contextual information from documents.
-
-### 3. Knowledge Retrieval
-
-Store and retrieve information using FAISS vector embeddings.
-
-### 4. Proposal Generation
-
-Generate:
-
-- Research Topic
-- Research Questions
-- Hypotheses
-- Literature Review
-- Methodology
-- Significance Assessment
-- Ethical Considerations
-- Timeline and Budget
-
-### 5. Final Output
-
-Compile all generated components into a structured research proposal.
+* Python
+* LangGraph
+* LangChain
+* Groq LLM (Llama 3 70B)
+* FAISS Vector Database
+* Hugging Face Embeddings
+* PyPDF
+* Docx2Txt
+* Retrieval-Augmented Generation (RAG)
 
 ## System Architecture
 
+### Document Processing
+
+* Extract text from PDF documents using PyPDF.
+* Extract text from Word documents using Docx2Txt.
+* Split documents into chunks using RecursiveCharacterTextSplitter.
+
+### Knowledge Retrieval
+
+* Generate embeddings using Hugging Face Embeddings.
+* Store document vectors in FAISS.
+* Retrieve relevant context using RetrievalQA.
+
+### Proposal Generation Workflow
+
+The LangGraph workflow consists of the following stages:
+
+1. Document Extraction
+2. Context Retrieval (RAG)
+3. Research Topic Generation
+4. Idea Generation
+5. Research Question Generation
+6. Hypothesis Generation
+7. Literature Review Creation
+8. Methodology Design
+9. Research Significance Analysis
+10. Ethical Consideration Assessment
+11. Timeline and Budget Planning
+12. Final Proposal Compilation
+
+## Workflow
+
 ```text
-Input Documents
+Research Documents
        │
        ▼
 Document Extraction
        │
        ▼
-Text Embeddings
+Text Chunking
+       │
+       ▼
+Hugging Face Embeddings
        │
        ▼
 FAISS Vector Store
        │
        ▼
-LangChain + Groq LLM
+RAG Retrieval
        │
        ▼
-Research Proposal Components
+LangGraph Workflow
+       │
+       ├── Research Topic
+       ├── Research Questions
+       ├── Hypothesis
+       ├── Literature Review
+       ├── Methodology
+       ├── Significance
+       ├── Ethics
+       └── Timeline & Budget
        │
        ▼
 Final Research Proposal
 ```
 
+## Key Features
+
+### Document Intelligence
+
+* PDF document processing
+* DOCX document processing
+* Multi-document knowledge extraction
+
+### Retrieval-Augmented Generation (RAG)
+
+* Context-aware proposal generation
+* Semantic document retrieval
+* Vector-based knowledge search
+
+### Automated Research Planning
+
+* Research topic identification
+* Research question generation
+* Hypothesis formulation
+* Literature review generation
+
+### Proposal Development
+
+* Methodology design
+* Significance analysis
+* Ethical assessment
+* Timeline planning
+* Budget estimation
+
 ## Results
 
-- Successfully automated research proposal generation.
-- Reduced manual effort in proposal drafting.
-- Generated structured and comprehensive research documents.
-- Enabled faster academic research planning.
-- Improved accessibility of AI-assisted research workflows.
+* Successfully automated research proposal creation.
+* Reduced manual effort required for proposal drafting.
+* Generated structured and comprehensive research proposals.
+* Improved proposal quality using document-grounded retrieval.
+* Demonstrated end-to-end integration of LangGraph and RAG pipelines.
 
 ## Applications
 
-- Academic Research
-- PhD Proposal Development
-- Research Grant Applications
-- Literature Review Assistance
-- Educational Research Projects
+* Academic Research
+* PhD Proposal Development
+* Grant Proposal Writing
+* Literature Review Assistance
+* Research Planning and Documentation
+* Educational Research Projects
 
 ## Future Improvements
 
-- Multi-document comparison and synthesis.
-- Citation generation and reference management.
-- Integration with academic databases.
-- Web-based user interface.
-- Support for additional LLM providers.
-- Export to PDF and Word formats.
+* Citation and reference generation.
+* Integration with Google Scholar and research databases.
+* Multi-agent research collaboration workflow.
+* Web application deployment using Streamlit or FastAPI.
+* Export proposals to PDF and DOCX formats.
+* Support for multiple LLM providers.
+
+
 
 ## Author
 
